@@ -17,6 +17,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false \
     persist.sys.root_access=3
 
+# Enable SIP+VoIP on all targets
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
+
+
 # selinux dialog
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
@@ -43,7 +48,6 @@ PRODUCT_PACKAGES += \
     NoiseField \
     PhaseBeam \
     PhotoTable \
-    ROMStats \
     SunBeam \
     Superuser \
     su \
@@ -124,8 +128,9 @@ PRODUCT_COPY_FILES += \
     vendor/carbon/prebuilt/common/bin/50-carbon.sh:system/addon.d/50-carbon.sh \
     vendor/carbon/prebuilt/common/bin/blacklist:system/addon.d/blacklist \
     vendor/carbon/prebuilt/common/bin/99-backup.sh:system/addon.d/99-backup.sh \
-    vendor/carbon/prebuilt/common/etc/backup.conf:system/etc/backup.conf
-
+    vendor/carbon/prebuilt/common/etc/backup.conf:system/etc/backup.conf \    
+    vendor/losp/prebuilt/common/lib/libphoneloc-jni.so:system/lib/libphoneloc-jni.so \
+    vendor/losp/prebuilt/common/usr/share/phoneloc.dat:system/usr/share/phoneloc.dat
 # SELinux filesystem labels
 PRODUCT_COPY_FILES += \
     vendor/carbon/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
