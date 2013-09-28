@@ -21,15 +21,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.selinux=1
 
+# Camera shutter sound property
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.camera-sound=1
+
 # packages
 PRODUCT_PACKAGES += \
     Apollo \
     BlueBalls \
+    BluetoothExt \
     Camera \
     CarbonFibers \
     Development \
     DSPManager \
-    Focal \
     CMFileManager \
     Galaxy4 \
     HALO \
