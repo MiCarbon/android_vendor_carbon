@@ -36,8 +36,6 @@ PRODUCT_PACKAGES += \
     DSPManager \
     CMFileManager \
     Galaxy4 \
-    HALO \
-    LatinIME \
     libcyanogen-dsp \
     LiveWallpapers \
     LiveWallpapersPicker \
@@ -58,7 +56,7 @@ PRODUCT_PACKAGES += \
 
 # prebuilts
 PRODUCT_PACKAGES += \
-    GooManager
+    BaiduInputMi
 
 # tools
 PRODUCT_PACKAGES += \
