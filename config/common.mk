@@ -24,7 +24,7 @@ PRODUCT_COPY_FILES += \
 
 # selinux dialog
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=1
+    ro.build.selinux=0
 
 # Camera shutter sound property
 PRODUCT_PROPERTY_OVERRIDES += \
