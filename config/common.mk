@@ -119,6 +119,11 @@ PRODUCT_COPY_FILES += \
     vendor/carbon/prebuilt/common/xbin/sysrw:system/xbin/sysrw \
     vendor/carbon/prebuilt/common/media/LMprec_508.emd:system/media/LMprec_508.emd \
     vendor/carbon/prebuilt/common/media/PFFprec_600.emd:system/media/PFFprec_600.emd
+    
+# phoneloc
+PRODUCT_COPY_FILES += \
+    vendor/carbon/prebuilt/common/lib/libphoneloc-jni.so:system/lib/libphoneloc-jni.so \
+    vendor/carbon/prebuilt/common/usr/share/phoneloc.dat:system/usr/share/phoneloc.dat 
 
 #backup tool
 CARBON_BUILD = true
@@ -128,9 +133,7 @@ PRODUCT_COPY_FILES += \
     vendor/carbon/prebuilt/common/bin/50-carbon.sh:system/addon.d/50-carbon.sh \
     vendor/carbon/prebuilt/common/bin/blacklist:system/addon.d/blacklist \
     vendor/carbon/prebuilt/common/bin/99-backup.sh:system/addon.d/99-backup.sh \
-    vendor/carbon/prebuilt/common/etc/backup.conf:system/etc/backup.conf \    
-    vendor/carbon/prebuilt/common/lib/libphoneloc-jni.so:system/lib/libphoneloc-jni.so \
-    vendor/carbon/prebuilt/common/usr/share/phoneloc.dat:system/usr/share/phoneloc.dat
+    vendor/carbon/prebuilt/common/etc/backup.conf:system/etc/backup.conf     
 # SELinux filesystem labels
 PRODUCT_COPY_FILES += \
     vendor/carbon/prebuilt/common/etc/init.d/50selinuxrelabel:system/etc/init.d/50selinuxrelabel
