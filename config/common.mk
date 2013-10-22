@@ -176,17 +176,20 @@ ifdef CARBON_RELEASE
 endif
 #Set Unofficial if no buildtype set (Buildtype should ONLY be set by Carbon Devs!)
 ifdef CARBON_BUILDTYPE
+    CARBON_BUILDTYPE := UNOFFICIAL
+    CARBON_VERSION_MAJOR :=1.026
+    PRODUCT_VERSION_MAINTENANCE = $(shell date +"%y"|rev|cut -c-1|rev).$(shell date +"%m"|sed -e 's/^0//' -e 's/ 0/ /g').$(shell date +"%d"|sed -e 's/^0//' -e 's/ 0/ /g')
 else
     CARBON_BUILDTYPE := UNOFFICIAL
-    CARBON_VERSION_MAJOR :=
-    CARBON_VERSION_MINOR :=
+    CARBON_VERSION_MAJOR :=1.026
+    PRODUCT_VERSION_MAINTENANCE = $(shell date +"%y"|rev|cut -c-1|rev).$(shell date +"%m"|sed -e 's/^0//' -e 's/ 0/ /g').$(shell date +"%d"|sed -e 's/^0//' -e 's/ 0/ /g')
 endif
 
 #Set Carbon version
 ifdef CARBON_RELEASE
-    CARBON_VERSION := "CARBON-JB-v"$(CARBON_VERSION_MAJOR).$(CARBON_VERSION_MINOR)
+    CARBON_VERSION := "MICARBON-JB-v$(CARBON_VERSION_MAJOR)
 else
-    CARBON_VERSION := "CARBON-JB-$(CARBON_BUILDTYPE)"-$(shell date +%Y%m%d-%H%M)
+    CARBON_VERSION := MICARBON-JB-v$(CARBON_VERSION_MAJOR)-$(PRODUCT_VERSION_MAINTENANCE)
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \

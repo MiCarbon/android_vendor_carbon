@@ -68,7 +68,7 @@ on boot
     chmod 0660 /sys/devices/system/cpu/cpufreq/ondemand/sync_freq
     chown system system /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load
     chmod 0660 /sys/devices/system/cpu/cpufreq/ondemand/up_threshold_any_cpu_load
-
+    
     # Assume SMP uses shared cpufreq policy for all CPUs
     chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
@@ -97,9 +97,6 @@ on boot
     chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
     chown root system /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
     chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-
-    chown system system /dev/cpuctl/apps/cpu.notify_on_migrate
-    chmod 0644 /dev/cpuctl/apps/cpu.notify_on_migrate
 
 # adb over network
 on property:service.adb.tcp.port=5555

@@ -112,15 +112,6 @@ rm -rf $REPACK/ota/system/etc/recovery-resource.dat
 [ -d $REPACK/ota/system/lib/modules ] && \
 	find $REPACK/ota/system/lib/modules -name "*.ko" -print0 | xargs -0 arm-eabi-strip --strip-unneeded
 
-if [ "$CARBON_CHANGELOG" = true ]
-then
-# Add changelog
-. $ANDROID_BUILD_TOP/vendor/carbon/tools/changelog
-else
-printf "No changelog..."
-echo
-fi
-
 # Pack it up and sign
 printf "Zipping package..."
 ( cd $REPACK/ota; zip $QUIET -r $REPACK/update.zip . )
@@ -128,9 +119,9 @@ echo
 printf "Signing package..."
 SECURITYDIR=$ANDROID_BUILD_TOP/build/target/product/security
 java -Xmx1024m \
-	-jar $OUT/../../../host/$OUT_TARGET_HOST/framework/signapk.jar \
-	-w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
-	$REPACK/update.zip $OUTFILE
+   -jar $OUT/../../../host/$OUT_TARGET_HOST/framework/signapk.jar \
+   -w $SECURITYDIR/testkey.x509.pem $SECURITYDIR/testkey.pk8 \
+   $REPACK/update.zip $OUTFILE
 echo
 printf "Cleaning up..."
 rm -rf $REPACK
@@ -143,7 +134,6 @@ cd `dirname $OUTFILE`
 $MD5 $img >$img.md5sum
 echo
 echo $CL_GRN"Package complete: $OUTFILE"$CL_RST
-echo $CL_GRN"md5: $(cat $img.md5sum | awk '{ print $1 }')"$CL_RST
 echo
 )
 
