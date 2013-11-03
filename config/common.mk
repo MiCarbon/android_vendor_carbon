@@ -36,7 +36,7 @@ PRODUCT_PACKAGES += \
     BlueBalls \
     BluetoothExt \
     Camera \
-    CarbonFibers \
+#    CarbonFibers \
     Development \
     DSPManager \
     CMFileManager \
@@ -67,9 +67,9 @@ PRODUCT_PACKAGES += \
     CellBroadcastReceiver
 
 # CM Hardware Abstraction Framework
-PRODUCT_PACKAGES += \
-    org.cyanogenmod.hardware \
-    org.cyanogenmod.hardware.xml
+#PRODUCT_PACKAGES += \
+#    org.cyanogenmod.hardware \
+#    org.cyanogenmod.hardware.xml
 
 PRODUCT_PACKAGES += \
     e2fsck \
@@ -187,9 +187,9 @@ endif
 
 #Set Carbon version
 ifdef CARBON_RELEASE
-    CARBON_VERSION := "MICARBON-JB-v$(CARBON_VERSION_MAJOR)
+    CARBON_VERSION := "MICARBON-KK-v$(CARBON_VERSION_MAJOR)
 else
-    CARBON_VERSION := MICARBON-JB-v$(CARBON_VERSION_MAJOR)-$(PRODUCT_VERSION_MAINTENANCE)
+    CARBON_VERSION := MICARBON-KK-v$(CARBON_VERSION_MAJOR)-$(PRODUCT_VERSION_MAINTENANCE)
 endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
