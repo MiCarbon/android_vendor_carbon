@@ -49,7 +49,8 @@ PRODUCT_PACKAGES += \
     Torch \
     VoicePlus \
     Wallpapers \
-    audio_effects.conf
+    audio_effects.conf \
+    libemoji
 
 
 # prebuilts
