@@ -32,16 +32,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # packages
 PRODUCT_PACKAGES += \
-    Apollo \
     BlueBalls \
     BluetoothExt \
     Camera \
-#    CarbonFibers \
     Development \
-    DSPManager \
-    CMFileManager \
     Galaxy4 \
-    libcyanogen-dsp \
     LiveWallpapers \
     LiveWallpapersPicker \
     LockClock \
@@ -52,7 +47,6 @@ PRODUCT_PACKAGES += \
     Superuser \
     su \
     Torch \
-    Trebuchet \
     VoicePlus \
     Wallpapers \
     audio_effects.conf
@@ -60,7 +54,7 @@ PRODUCT_PACKAGES += \
 
 # prebuilts
 PRODUCT_PACKAGES += \
-    BaiduInputMi
+ #    BaiduInputMi
 
 # tools
 PRODUCT_PACKAGES += \
@@ -177,11 +171,11 @@ endif
 #Set Unofficial if no buildtype set (Buildtype should ONLY be set by Carbon Devs!)
 ifdef CARBON_BUILDTYPE
     CARBON_BUILDTYPE := UNOFFICIAL
-    CARBON_VERSION_MAJOR :=1.026
+    CARBON_VERSION_MAJOR :=SP
     PRODUCT_VERSION_MAINTENANCE = $(shell date +"%y"|rev|cut -c-1|rev).$(shell date +"%m"|sed -e 's/^0//' -e 's/ 0/ /g').$(shell date +"%d"|sed -e 's/^0//' -e 's/ 0/ /g')
 else
     CARBON_BUILDTYPE := UNOFFICIAL
-    CARBON_VERSION_MAJOR :=1.026
+    CARBON_VERSION_MAJOR :=SP
     PRODUCT_VERSION_MAINTENANCE = $(shell date +"%y"|rev|cut -c-1|rev).$(shell date +"%m"|sed -e 's/^0//' -e 's/ 0/ /g').$(shell date +"%d"|sed -e 's/^0//' -e 's/ 0/ /g')
 endif
 
@@ -195,10 +189,4 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.carbon.version=$(CARBON_VERSION)
 
-# ROM Statistics and ROM Identification
-PRODUCT_PROPERTY_OVERRIDES += \
-ro.romstats.askfirst=1 \
-ro.romstats.ga=UA-43747246-1 \
-ro.romstats.name=CarbonRom- \
-ro.romstats.url=http://carbon-stats.mattman.org \
-ro.romstats.version=$(CARBON_VERSION)
+
