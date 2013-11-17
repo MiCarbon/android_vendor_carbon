@@ -54,7 +54,7 @@ PRODUCT_PACKAGES += \
 
 # prebuilts
 PRODUCT_PACKAGES += \
- #    BaiduInputMi
+     GooglePinyinInput
 
 # tools
 PRODUCT_PACKAGES += \
