@@ -192,15 +192,3 @@ endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.carbon.version=$(CARBON_VERSION)
-
-<<<<<<< HEAD
-
-=======
-# ROM Statistics and ROM Identification
-PRODUCT_PROPERTY_OVERRIDES += \
-ro.romstats.askfirst=1 \
-ro.romstats.ga=UA-43747246-1 \
-ro.romstats.name=CarbonRom- \
-ro.romstats.url=http://carbon-stats.mattman.org \
-ro.romstats.version=$(CARBON_VERSION)
->>>>>>> 70cd829587798e0cb5b2e6df7cce01537f158764
