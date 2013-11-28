@@ -3,7 +3,6 @@ PRODUCT_BRAND ?= Carbon
 
 #SuperUser
 SUPERUSER_EMBEDDED := true
-SUPERUSER_PACKAGE_PREFIX := com.android.settings.cyanogenmod.superuser
 
 # overrides
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -32,11 +31,16 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # packages
 PRODUCT_PACKAGES += \
+    Apollo \
     BlueBalls \
     BluetoothExt \
     Camera \
+    CarbonFibers \
     Development \
+    DSPManager \
+    CMFileManager \
     Galaxy4 \
+    libcyanogen-dsp \
     LiveWallpapers \
     LiveWallpapersPicker \
     LockClock \
@@ -61,9 +65,9 @@ PRODUCT_PACKAGES += \
     CellBroadcastReceiver
 
 # CM Hardware Abstraction Framework
-#PRODUCT_PACKAGES += \
-#    org.cyanogenmod.hardware \
-#    org.cyanogenmod.hardware.xml
+PRODUCT_PACKAGES += \
+    org.cyanogenmod.hardware \
+    org.cyanogenmod.hardware.xml
 
 PRODUCT_PACKAGES += \
     e2fsck \
@@ -189,4 +193,14 @@ endif
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.carbon.version=$(CARBON_VERSION)
 
+<<<<<<< HEAD
 
+=======
+# ROM Statistics and ROM Identification
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.romstats.askfirst=1 \
+ro.romstats.ga=UA-43747246-1 \
+ro.romstats.name=CarbonRom- \
+ro.romstats.url=http://carbon-stats.mattman.org \
+ro.romstats.version=$(CARBON_VERSION)
+>>>>>>> 70cd829587798e0cb5b2e6df7cce01537f158764
