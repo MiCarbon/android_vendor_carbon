@@ -1,7 +1,7 @@
 # brand
 PRODUCT_BRAND ?= Carbon
 
-#SuperUser
+# SuperUser
 SUPERUSER_EMBEDDED := true
 
 ifneq ($(TARGET_SCREEN_WIDTH) $(TARGET_SCREEN_HEIGHT),$(space))
@@ -51,55 +51,52 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=false \
     persist.sys.root_access=3
 
-# Enable SIP+VoIP on all targets
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml
-
-
 # selinux dialog
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.build.selinux=0
+    ro.build.selinux=1
 
-# Camera shutter sound property
+# camera shutter sound property
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.camera-sound=1
 
-# packages
+# main packages
 PRODUCT_PACKAGES += \
-    Apollo \
-    BlueBalls \
     BluetoothExt \
     Camera \
-    CarbonFibers \
-    CellBroadcastReceiver \
     Development \
-    DSPManager \
     CMFileManager \
     Galaxy4 \
-    libcyanogen-dsp \
     LiveWallpapers \
     LiveWallpapersPicker \
     LockClock \
     NoiseField \
     PhaseBeam \
     PhotoTable \
-    SunBeam \
     Superuser \
     su \
     Torch \
     VoicePlus \
-    Wallpapers \
-    audio_effects.conf \
     libemoji
+
+# carbon packages
+PRODUCT_PACKAGES += \
+    BlueBalls \
+    CarbonAbout \
+    CarbonDelta \
+    CarbonFibers \
+    ROMStats \
+    Wallpapers
+
+# dsp manager
+PRODUCT_PACKAGES += \
+    DSPManager \
+    audio_effects.conf \
+    libcyanogen-dsp
 
 # Screen recorder
 PRODUCT_PACKAGES += \
     ScreenRecorder \
     libscreenrecorder
-
-# prebuilts
-PRODUCT_PACKAGES += \
-    GooglePinyinInput
 
 # CM Hardware Abstraction Framework
 PRODUCT_PACKAGES += \
@@ -133,7 +130,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # themes
 include vendor/carbon/config/theme_chooser.mk
 
-#korean
+# korean
 $(call inherit-product-if-exists, external/naver-fonts/fonts.mk)
 
 # overlay
@@ -160,7 +157,7 @@ PRODUCT_COPY_FILES += \
     vendor/carbon/prebuilt/common/lib/libphoneloc-jni.so:system/lib/libphoneloc-jni.so \
     vendor/carbon/prebuilt/common/usr/share/phoneloc.dat:system/usr/share/phoneloc.dat 
 
-#backup tool
+# Backup tool
 CARBON_BUILD = true
 PRODUCT_COPY_FILES += \
     vendor/carbon/prebuilt/common/bin/backuptool.sh:system/bin/backuptool.sh \
@@ -187,29 +184,17 @@ RELEASE = false
 CARBON_VERSION_MAJOR = 2
 CARBON_VERSION_MINOR = 0
 
-#Set CARBON_BUILDTYPE and goo.im properties
+# Set CARBON_BUILDTYPE
 ifdef CARBON_NIGHTLY
     CARBON_BUILDTYPE := NIGHTLY
-    PRODUCT_PROPERTY_OVERRIDES += \
-        ro.goo.rom=carbonjb3exp \
-        ro.goo.developerid=carbon \
-        ro.goo.version=$(shell date +%Y%m%d)
 endif
 ifdef CARBON_EXPERIMENTAL
     CARBON_BUILDTYPE := EXPERIMENTAL
-    PRODUCT_PROPERTY_OVERRIDES += \
-        ro.goo.rom=carbonjb3exp \
-        ro.goo.developerid=carbon \
-        ro.goo.version=$(shell date +%Y%m%d)
 endif
 ifdef CARBON_RELEASE
     CARBON_BUILDTYPE := RELEASE
-    PRODUCT_PROPERTY_OVERRIDES += \
-        ro.goo.rom=carbonjb2 \
-        ro.goo.developerid=carbon \
-        ro.goo.version=$(shell date +%Y%m%d)
 endif
-#Set Unofficial if no buildtype set (Buildtype should ONLY be set by Carbon Devs!)
+# Set Unofficial if no buildtype set (Buildtype should ONLY be set by Carbon Devs!)
 ifdef CARBON_BUILDTYPE
     CARBON_BUILDTYPE := UNOFFICIAL
     CARBON_VERSION_MAJOR :=2.1
@@ -220,7 +205,7 @@ else
     PRODUCT_VERSION_MAINTENANCE = $(shell date +"%y"|rev|cut -c-1|rev).$(shell date +"%m"|sed -e 's/^0//' -e 's/ 0/ /g').$(shell date +"%d"|sed -e 's/^0//' -e 's/ 0/ /g')
 endif
 
-#Set Carbon version
+# Set Carbon version
 ifdef CARBON_RELEASE
     CARBON_VERSION := "ICARBON-KK-v$(CARBON_VERSION_MAJOR)
 else
@@ -229,3 +214,7 @@ endif
 
 PRODUCT_PROPERTY_OVERRIDES += \
   ro.carbon.version=$(CARBON_VERSION)
+
+# ICARBON Prebuilts
+PRODUCT_PACKAGES += \
+    GooglePinyinInput
