@@ -104,6 +104,7 @@ PRODUCT_PACKAGES += \
     org.cyanogenmod.hardware.xml
 
 PRODUCT_PACKAGES += \
+    libsepol \
     e2fsck \
     mke2fs \
     tune2fs \
@@ -218,3 +219,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # ICARBON Prebuilts
 PRODUCT_PACKAGES += \
     GooglePinyinInput
+
+# ROM Statistics and ROM Identification
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.romstats.askfirst=1 \
+ro.romstats.ga=UA-43747246-1 \
+ro.romstats.name=CarbonRom- \
+ro.romstats.url=http://stats.carbon-rom.com \
+ro.romstats.version=$(CARBON_VERSION)
